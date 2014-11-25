@@ -11,7 +11,9 @@
     "requirejs": "~2.1.14",
     "es5-shim": "~4.0.3",
     "bootstrap": "~3.2.0",
-    "normalize.scss": "~3.0.2+normalize.3.0.2"
+    "normalize.scss": "~3.0.2+normalize.3.0.2",
+    "isotope": "~2.1.0",
+    "jquery": "~2.1.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.25",

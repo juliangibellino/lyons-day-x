@@ -1,62 +1,173 @@
 <!doctype html>
 <html class="no-js" ng-app>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-  </head>
-  <body ng-app="lyonsDayXApp">
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Lyons Day X</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+<body class="ldx" ng-app="lyonsDayXApp" data-ng-cloak>
+<div class="ldx-wrapper">
 
-    <!-- Add your site or application content here -->
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">lyonsDayX</h3>
+  <section class="ldx-hero">
+    <div class="ldx-inner-wrapper">
+      <div class="ldx-hero-logo">
+        <img src="images/content/ldx-logo-hero.png" />
       </div>
+      <ul class="ldx-hero-date">
+        <li>Friday</li>
+        <li>Jan 16</li>
+        <li>NYC</li>
+      </ul>
+    </div>
+  </section>
 
-      <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
+  <section class="ldx-details">
+    <div class="ldx-inner-wrapper">
+      <div class="ldx-details-heading">
+        <h2>Details</h2>
+      </div>
+      <ul class="ldx-details-list">
+        <li class="ldx-details-item">
+          <h3 class="ldx-label">Date</h3>
+          <div class="ldx-info">
+            <p>January 16<sup>th</sup> 2014</p>
+          </div>
+        </li>
+        <li class="ldx-details-item">
+          <h3 class="ldx-label">Location</h3>
+          <div class="ldx-info">
+            <p>New York, NY</p>
+          </div>
+        </li>
+        <li class="ldx-details-item">
+          <h3 class="ldx-label">Bar</h3>
+          <div class="ldx-info">
+            <p>East End Bar</p>
+            <p>1664 1<sup>st</sup> Ave</p>
+            <p>(87<sup>st</sup> &amp; 1<sup>st</sup> Ave)</p>
+          </div>
+        </li>
 
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+      </ul>
+    </div>
+  </section>
+
+
+  <section class="ldx-tshirts" data-ng-controller="TshirtCtrl">
+    <div class="ldx-inner-wrapper">
+      <h3>Tshirts</h3>
+      <div class="ldx-tshirt-preview">
+        <div class="ldx-tshirt-images">
+          <img data-ng-show="isFront" src="images/content/ldx-tshirt-front.jpg" />
+          <img data-ng-show="!isFront" src="images/content/ldx-tshirt-back.jpg" />
+        </div>
+        <div class="ldx-tshirt-toggle">
+          <span data-ng-click="enableFront()" data-ng-class="{'active' : isFront}">Front</span>
+          <span data-ng-click="disableFront()" data-ng-class="{'active' : !isFront}">Back</span>
+        </div>
+      </div>
+      <div class="ldx-tshirt-info">
+        <p>Nothing says day drinking better than the official lyons day tshirt. Check back soon to your swag order in!</p>
+
+        <a class="btn" href="javascript:void(0)">Store Coming Soon</a>
+
+        <!--<p>Nothing says day drinking better than the official lyons day tshirt. GET your swag order in now!</p>-->
+
+        <!--<a class="btn">Buy Now</a>-->
       </div>
     </div>
+  </section>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <section class="ldx-live-stream">
+    <div class="ldx-grid-overlay">
+      <div class="ldx-inner-wrapper">
+        <h3>Watch Live</h3>
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
+        <p>Stuck at work? Wish you were here with us? Don’t worry &ndash; you can watch the whole event live, right here.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- build:js(.) scripts/oldieshim.js -->
-    <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/json3/lib/json3.js"></script>
-    <![endif]-->
-    <!-- endbuild -->
+  <section class="ldx-tweet-deck">
+    <div class="ldx-inner-wrapper">
+      <div class="ldx-feature-tweet">
+        <p><span>im gonna rock out to some ace of base hard body today #lyonsday</span></p>
+      </div>
+    </div>
+  </section>
 
-    <script src="bower_components/requirejs/require.js" data-main="scripts/main.js"></script>
-  </body>
+  <section class="ldx-social-feed" data-ng-controller="SocialFeedCtrl">
+    <div class="ldx-inner-wrapper">
+      <div class="ldx-social-header">
+        <h3>Follow Us</h3>
+        <p class="ldx-social-hashtag"><span>#lyonsday</span></p>
+      </div>
+      <div class="ldx-social-tiles" id="ldx-social-media-feed" data-social-feed-grid="">
+        <div class="ldx-social-tile ldx-{{post.mediaType}} ldx-color-type-{{post.colorCode}}" data-ng-repeat="post in socialFeed | orderBy: '-postDate'">
+          <div class="ldx-post-header">
+            <div class="ldx-image">
+              <img data-ng-src="{{post.user.avatar}}" />
+            </div>
+            <div class="ldx-user-info">
+              <p class="ldx-user">{{post.user.userName}}</p>
+              <p class="ldx-time">{{post.postDate | timeago}}</p>
+            </div>
+          </div>
+          <div class="ldx-post-image" data-ng-if="post.image !== null">
+            <img data-ng-src="{{post.image}}" />
+          </div>
+          <div class="ldx-post-content">
+            <p>{{post.content}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ldx-footer">
+    <div class="ldx-footer-logo">
+      <img src="images/content/ldx-logo-footer.png" />
+    </div>
+  </footer>
+
+</div>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+  ga('create', 'UA-XXXXX-X');
+  ga('send', 'pageview');
+</script>
+
+<!-- build:js(.) scripts/oldieshim.js -->
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.js"></script>
+<![endif]-->
+<!-- endbuild -->
+
+<script src="bower_components/requirejs/require.js" data-main="scripts/main.js"></script>
+</body>
 </html>

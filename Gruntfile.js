@@ -165,10 +165,10 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
-        ignorePath:  /\.\.\//
+        ignorePath: /\.\.\//
       },
       sass: {
-      src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
     },
@@ -229,7 +229,7 @@ module.exports = function (grunt) {
       html: ['<%= yeoman.dist %>/{,*/}*.html'],
       css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
       options: {
-        assetsDirs: ['<%= yeoman.dist %>','<%= yeoman.dist %>/images']
+        assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images']
       }
     },
 
@@ -393,7 +393,7 @@ module.exports = function (grunt) {
       app: {
         rjsConfig: '<%= yeoman.app %>/scripts/main.js',
         options: {
-          exclude: ['requirejs', 'json3', 'es5-shim']
+          exclude: ['requirejs', 'json3', 'es5-shim', 'isotope']
         }
       }
     },
@@ -404,7 +404,7 @@ module.exports = function (grunt) {
         overwrite: true,
         replacements: [{
           from: /paths: {[^}]+}/,
-          to: function() {
+          to: function () {
             return require('fs').readFileSync(grunt.template.process('<%= yeoman.app %>') + '/scripts/main.js').toString().match(/paths: {[^}]+}/);
           }
         }]

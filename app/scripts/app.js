@@ -1,5 +1,5 @@
 /*jshint unused: vars */
-define(['angular', 'controllers/main']/*deps*/, function (angular, MainCtrl)/*invoke*/ {
+define(['angular', 'controllers/main', 'controllers/tshirt', 'controllers/socialfeed', 'services/socialfeed', 'filters/timeago', 'directives/socialfeedgrid']/*deps*/, function (angular, MainCtrl, TshirtCtrl, SocialFeedCtrl, SocialFeedService, TimeagoFilter, SocialFeedGridDirective)/*invoke*/ {
   'use strict';
 
   /**
@@ -11,9 +11,15 @@ define(['angular', 'controllers/main']/*deps*/, function (angular, MainCtrl)/*in
    * Main module of the application.
    */
   return angular
-    .module('lyonsDayXApp', ['lyonsDayXApp.controllers.MainCtrl',
+    .module('lyonsDayXApp', [
+      'lyonsDayXApp.controllers.MainCtrl',
+      'lyonsDayXApp.controllers.TshirtCtrl',
+'lyonsDayXApp.controllers.SocialFeedCtrl',
+'lyonsDayXApp.services.SocialFeed',
+'lyonsDayXApp.filters.Timeago',
+'lyonsDayXApp.directives.SocialFeedGrid',
 /*angJSDeps*/
-    'ngResource',
-    'ngSanitize'
-  ]);
+      'ngResource',
+      'ngSanitize'
+    ]);
 });

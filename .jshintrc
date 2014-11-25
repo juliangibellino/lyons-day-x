@@ -26,6 +26,7 @@
     "ngRoutes": false,
     "ngSanitize": false,
     "ngCookies": false,
-    "ngResource": false
+    "ngResource": false,
+    "lodash": false
   }
 }

@@ -1,0 +1,83 @@
+/**
+  FONTS
+*/
+$font-league-gothic: 'League Gothic';
+$font-league-gothic-condensed: 'League Gothic Condensed';
+$font-ostrich-sans: 'Ostrich Sans';
+$font-ostrich-sans-dashed: 'Ostrich Sans Dashed';
+$font-ostrich-sans-rounded: 'Ostrich Sans Rounded';
+$font-ostrich-sans-inline: 'Ostrich Sans Inline';
+$font-open-sans: 'Open Sans';
+$font-icons: 'ldx-icons';
+
+/**
+  COLORS
+*/
+$base-black: #000;
+$base-white: #fff;
+$base-grey-ultra-light: #e7e7e7;
+$base-grey-light: #cdcdcd;
+$base-grey-medium: #e8e8e8;
+$base-grey-dark: #454545;
+
+/*
+  IMAGES
+*/
+$base-image-path: '../images';
+$base-image-css-path: $base-image-path + '/css/';
+$base-sprite-path: $base-image-css-path + 'sprite.png';
+
+/*
+  MIX-INS
+*/
+@mixin font-size($value) {
+  font-size: $value + px;
+  font-size: ($value / 16) + rem;
+}
+
+@mixin clearer() {
+  &:after{
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+@mixin ldx-bracket($size, $weight, $position, $color){
+  position: relative;
+  &:before,
+  &:after{
+    display: block;
+    position: absolute;
+    content: '';
+    text-indent: -9999px;
+    height: $size;
+    width: $size;
+
+    @if $position == 'top' {
+      top: 0;
+      border-top: $weight solid $color;
+    } @else {
+      bottom: 0;
+      border-bottom: $weight solid $color;
+    }
+
+  }
+  &:before{
+    left: 0;
+    border-left: $weight solid $color;
+  }
+  &:after{
+    right: 0;
+    border-right: $weight solid $color;
+  }
+}
+
+@mixin box-shadow( $horiz : .01em , $vert : .01em , $blur : 1px , $spread : 0px , $opacity : 0.7 ){
+  -webkit-box-shadow: $horiz $vert $blur $spread rgba(0,0,0, $opacity);
+  -moz-box-shadow: $horiz $vert $blur $spread rgba(0,0,0, $opacity);
+  box-shadow: $horiz $vert $blur $spread rgba(0,0,0, $opacity);
+}

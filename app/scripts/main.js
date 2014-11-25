@@ -8,7 +8,10 @@ require.config({
     'angular-sanitize': '../../bower_components/angular-sanitize/angular-sanitize',
     'angular-scenario': '../../bower_components/angular-scenario/angular-scenario',
     'angular-touch': '../../bower_components/angular-touch/angular-touch',
-    bootstrap: '../../bower_components/bootstrap/dist/js/bootstrap'
+    bootstrap: '../../bower_components/bootstrap/dist/js/bootstrap',
+    jquery: '../../bower_components/jquery/dist/jquery',
+    lodash: 'vendor/lodash',
+    isotope: '../../bower_components/isotope/dist/isotope.pkgd.min'
   },
   shim: {
     angular: {
@@ -31,7 +34,16 @@ require.config({
         'angular'
       ],
       exports: 'angular.mock'
-    }
+    },
+    lodash: {
+      exports: '_'
+    },
+    jquery: {
+      exports: 'jquery'
+    },
+    isotope: [
+      'jquery'
+    ]
   },
   priority: [
     'angular'
@@ -51,12 +63,12 @@ require([
   'angular-resource',
   'angular-animate',
   'angular-touch'
-], function(angular, app, ngSanitize, ngResource, ngAnimate, ngTouch) {
+], function (angular, app, ngSanitize, ngResource, ngAnimate, ngTouch) {
   'use strict';
   /* jshint ignore:start */
   var $html = angular.element(document.getElementsByTagName('html')[0]);
   /* jshint ignore:end */
-  angular.element().ready(function() {
+  angular.element().ready(function () {
     angular.resumeBootstrap([app.name]);
   });
 });

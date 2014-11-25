@@ -1,0 +1,31 @@
+@font-face {
+	font-family: 'ldx-icons';
+	src:url('../../fonts/ldx-icons.eot?-mu8sq3');
+	src:url('../../fonts/ldx-icons.eot?#iefix-mu8sq3') format('embedded-opentype'),
+		url('../../fonts/ldx-icons.woff?-mu8sq3') format('woff'),
+		url('../../fonts/ldx-icons.ttf?-mu8sq3') format('truetype'),
+		url('../../fonts/ldx-icons.svg?-mu8sq3#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'ldx-icons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-down:before {
+	content: "\3e";
+}
+.icon-arrow-right:before {
+	content: "\7d";
+}
