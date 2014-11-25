@@ -20,7 +20,7 @@ define(['angular'], function (angular) {
       };
 
       function _parseTweets(data){
-        var posts = data;
+        var posts = JSON.parse(data);
         var feed = [];
 
         if(posts && posts.statuses && posts.statuses.length > 0){
@@ -45,7 +45,7 @@ define(['angular'], function (angular) {
       }
 
       function _parseInstagram(data){
-        var posts = data;
+        var posts = JSON.parse(data);
         var feed = [];
 
         if(posts && posts.length > 0){
@@ -66,6 +66,7 @@ define(['angular'], function (angular) {
               feed.push(socialObj);
             }
           });
+
         }
 
         return feed;
@@ -87,7 +88,6 @@ define(['angular'], function (angular) {
         return $http({
           url: _endpoint.twitter + '/' + tags,
           method: 'GET',
-          responseType: 'json',
           transformResponse: _parseTweets
 
         });
@@ -98,7 +98,6 @@ define(['angular'], function (angular) {
         return $http({
           url: _endpoint.instagram + '/' + tag,
           method: 'GET',
-          responseType: 'json',
           transformResponse: _parseInstagram
         });
       };
