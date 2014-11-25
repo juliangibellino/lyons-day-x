@@ -7,6 +7,9 @@ $tablet-breakpoint: 40.063em;
 $desktop-breakpoint: 61em;
 /* ~976px */
 
+$desktop-wide-breakpoint: 64.25em;
+/* ~1028px */
+
 // Media Queries
 $screen: "only screen" !default;
 $landscape: "#{$screen} and (orientation: landscape)" !default;
@@ -15,3 +18,6 @@ $portrait: "#{$screen} and (orientation: portrait)" !default;
 // Mobile first
 $tablet: "#{$screen} and (min-width:#{$tablet-breakpoint})" !default;
 $desktop: "#{$screen} and (min-width:#{$desktop-breakpoint})" !default;
+$desktop-wide: "#{$screen} and (min-width:#{$desktop-wide-breakpoint})" !default;
+
+
