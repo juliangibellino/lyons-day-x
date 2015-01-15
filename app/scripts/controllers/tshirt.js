@@ -13,6 +13,33 @@ define(['angular'], function (angular) {
 
       $scope.isFront = true;
 
+      $scope.shirtOptions = [
+        {
+          name : 'Sm',
+          code: 'Small'
+        },
+        {
+          name : 'M',
+          code: 'Med'
+        },
+        {
+          name : 'L',
+          code: 'Lg'
+        },
+        {
+          name : 'XL',
+          code: 'XL'
+        },
+        {
+          name : 'XXL',
+          code: 'XXL'
+        }
+      ];
+
+      $scope.shirtForm = {
+        size : $scope.shirtOptions[0]
+      };
+
       $scope.enableFront = function(){
         $scope.isFront = true;
       };
@@ -21,5 +48,8 @@ define(['angular'], function (angular) {
         $scope.isFront = false;
       };
 
+      $scope.setShirtSize = function(shirtSize){
+        $scope.shirtForm.size = shirtSize;
+      }
     });
 });

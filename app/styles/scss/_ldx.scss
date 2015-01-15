@@ -23,16 +23,22 @@ html {
     left: 0.05em;
   }
 
-  a.btn{
+  a.ldx-btn,
+  button.ldx-btn{
     display: table;
-    color: $base-black;
+    color: $base-white;
     border: 1px $base-black solid;
+    background: $base-black;
     border-radius: 100px;
     margin: 20px 0;
     padding: 10px 30px 5px 50px;
     &:hover{
-      background: $base-black;
-      color: $base-white;
+      background: $base-white;
+      color: $base-black;
+    }
+    &:active,
+    &:focus{
+      outline: none;
     }
     &:after{
       display: inline-block;
@@ -204,6 +210,7 @@ html {
         float: right;
         @include col-1-2;
         margin: 0;
+        padding-left: 20px;
       }
 
       .ldx-details-item{
@@ -219,11 +226,18 @@ html {
         }
       }
 
-      .ldx-label,
+      .ldx-label{
+        @media #{$tablet} {
+          display: table-cell;
+          @include col-2-5;
+          padding-right: 10px;
+        }
+      }
+
       .ldx-info{
         @media #{$tablet} {
           display: table-cell;
-          @include col-1-2;
+          @include col-3-5;
         }
       }
 
@@ -232,7 +246,7 @@ html {
         @include font-size(28);
         font-weight: 900;
         @media #{$tablet} {
-         @include font-size(38);
+         @include font-size(34);
         }
 
       }
@@ -240,7 +254,13 @@ html {
         margin: 5px 0;
         @include font-size(28);
         @media #{$tablet} {
-          @include font-size(38);
+          @include font-size(34);
+        }
+      }
+      .ldx-info-comment{
+        @include font-size(22);
+        @media #{$tablet} {
+          @include font-size(30);
         }
       }
     }
@@ -277,6 +297,7 @@ html {
 
     .ldx-tshirt-preview{
       text-align: center;
+      position: relative;
       @media #{$tablet} {
         float: left;
         @include col-1-2();
@@ -319,7 +340,7 @@ html {
     .ldx-tshirt-info{
       margin: 30px 0 0;
       text-align: center;
-      @include font-size(22);
+      @include font-size(24);
       @media #{$tablet} {
         float: right;
         @include col-2-5();
@@ -330,15 +351,55 @@ html {
         margin: 20px 0;
       }
 
-      a.btn{
+      .ldx-select{
+        display: none;
+      }
+
+      .ldx-shirt-label{
+        margin: 10px 0 5px;
+        text-align: center;
+        @include font-size(24);
+
+        @media #{$tablet} {
+          @include font-size(34);
+        }
+      }
+
+      .ldx-shirt-sizes{
+        list-style: none;
+        margin: 10px 0;
+        padding: 0;
+        text-align: center;
+
+        li{
+          width: 15%;
+          list-style: none;
+          display: inline-block;
+          margin: 0 6px;
+          padding: 6px 0 2px 2px;
+          border: 1px solid $base-black;
+          text-align: center;
+          @include font-size(22);
+          cursor: pointer;
+
+          &.active{
+            background: $base-black;
+            color: $base-white;
+          }
+        }
+
+      }
+
+      a.ldx-btn,
+      button.ldx-btn{
         display: block;
         @include font-size(24);
-        margin: 10px auto;
+        margin: 30px auto 20px;
         width: 90%;
         @media #{$tablet} {
           display: block;
-          width: auto;
-          margin-top: 40px;
+          width: 100%;
+          margin-top: 30px;
           @include font-size(38);
           padding-left: 35px;
         }
@@ -378,6 +439,8 @@ html {
     }
     .ldx-inner-wrapper{
       padding: 20px 10px;
+      z-index: 100;
+      position: relative;
       @media #{$tablet} {
         padding: 20px 7%;
       }
@@ -392,7 +455,7 @@ html {
     h3{
       display: table;
       @include font-size(64);
-      margin: 190px auto 50px;
+      margin: 100px auto 50px;
       line-height: 1;
       padding: 20px 40px 5px;
       @media #{$tablet} {
@@ -401,12 +464,28 @@ html {
     }
     p{
       display: inline;
-      @include font-size(34);
+      @include font-size(24);
       line-height: 1.5;
       letter-spacing: 0.05em;
       padding: 6px 0 0;
       @media #{$tablet} {
-        @include font-size(48);
+        @include font-size(36);
+      }
+    }
+
+    .video-wrapper {
+      position: relative;
+      margin: 40px auto;
+      padding-bottom: 56.25%; /* 16:9 */
+      padding-top: 25px;
+      height: 0;
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
       }
     }
 
@@ -418,10 +497,34 @@ html {
     background: url($base-image-css-path + '/ldx-black-banner.jpg') repeat center;
     overflow: hidden;
 
+    .ldx-inner-wrapper{
+      position: relative;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
     .ldx-feature-tweet{
       @include ldx-bracket(40px, 2px, top, $base-white);
       text-align: center;
-      margin: 20px auto;
+      margin: 0 auto;
+      opacity: 1;
+      -webkit-transition: all ease 0.5s;
+      -moz-transition: all ease 0.5s;
+      -o-transition: all ease 0.5s;
+      -ms-transition: all ease 0.5s;
+      transition: all ease 0.5s;
+
+      &.ng-hide{
+        opacity: 0;
+      }
+      &.ng-hide-add{
+        display: block !important;
+        position: absolute;
+        top: 0;
+        left: 5%;
+        right: 5%;
+      }
+
       @media #{$tablet}{
         @include col-4-5();
         margin: 40px auto;
@@ -438,19 +541,18 @@ html {
           @include font-size(48);
         }
 
-        span:after{
+        span.ldx-tweet-content:after{
           content: '';
           position: relative;
           display: inline-block;
           top: 8px;
-          margin: 0 0 0 20px;
+          margin: 0 5px 0 20px;
           height: 33px;
           width: 40px;
           background: url($base-sprite-path) no-repeat 0 0;
           background-size: 80px;
           @media #{$tablet} {
             top: 0;
-            margin: 0 0 0 20px;
             height: 33px;
             width: 40px;
             background-size: auto;

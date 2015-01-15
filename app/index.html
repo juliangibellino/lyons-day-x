@@ -58,12 +58,19 @@
             <p>(87<sup>st</sup> &amp; 1<sup>st</sup> Ave)</p>
           </div>
         </li>
-
+        <li class="ldx-details-item">
+          <h3 class="ldx-label">Bar Special</h3>
+          <div class="ldx-info">
+            <p>12PM–3PM</p>
+            <p>$40 TOP SHELF OPEN BAR</p>
+            <p class="ldx-info-comment">(INCLUDING RED BULL & GREY GOOSE)</p>
+          </div>
+        </li>
       </ul>
     </div>
   </section>
 
-
+  <!--
   <section class="ldx-tshirts" data-ng-controller="TshirtCtrl">
     <div class="ldx-inner-wrapper">
       <h3>Tshirts</h3>
@@ -78,31 +85,52 @@
         </div>
       </div>
       <div class="ldx-tshirt-info">
-        <p>Nothing says day drinking better than the official lyons day tshirt. Check back soon to get your order in!</p>
+        <p>Nothing says day drinking better than the official lyons day tshirt. Get your order in now!</p>
 
-        <a class="btn" href="javascript:void(0)">Store Coming Soon</a>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+          <input type="hidden" name="cmd" value="_s-xclick">
+          <input type="hidden" name="hosted_button_id" value="XU3NJXPVBEWH6">
+          <input type="hidden" name="on0" value="Sizes">
 
-        <!--<p>Nothing says day drinking better than the official lyons day tshirt. GET your swag order in now!</p>-->
+          <select name="os0" class="ldx-select" data-ng-model="shirtForm.size" data-ng-options="size.name for size in shirtOptions track by size.code">
+          </select>
 
-        <!--<a class="btn">Buy Now</a>-->
+          <p class="ldx-shirt-label">- $20 Each -</p>
+
+          <ul class="ldx-shirt-sizes">
+            <li data-ng-repeat="size in shirtOptions"
+                data-ng-class="{'active' : shirtForm.size === size}"
+                data-ng-click="setShirtSize(size)">{{size.name}}</li>
+          </ul>
+
+          <button type="submit" class="ldx-btn">Buy Now</button>
+        </form>
+
       </div>
     </div>
   </section>
+  -->
 
   <section class="ldx-live-stream">
-    <div class="ldx-grid-overlay">
-      <div class="ldx-inner-wrapper">
-        <h3>Watch Live</h3>
+    <div class="ldx-grid-overlay"></div>
+    <div class="ldx-inner-wrapper">
+      <h3>Watch Live</h3>
 
-        <p>Stuck at work? Wish you were here with us? Don’t worry &ndash; you can watch the whole event live, right here.</p>
+      <p>Stuck at work? Wish you were here with us? Don’t worry &ndash; you can watch the whole event live, right here.</p>
+
+      <div class="video-wrapper">
+        <iframe src="http://www.ustream.tv/embed/13031047?wmode=direct" style="border: 0 none transparent;" frameborder="no"></iframe>
       </div>
     </div>
   </section>
 
-  <section class="ldx-tweet-deck">
+  <section class="ldx-tweet-deck" data-ng-controller="TweetDeckCtrl">
     <div class="ldx-inner-wrapper">
-      <div class="ldx-feature-tweet">
-        <p><span>im gonna rock out to some ace of base hard body today #lyonsday</span></p>
+      <div class="ldx-feature-tweet" data-ng-repeat="tweet in tweets" data-ng-show="tweet.active">
+        <p>
+          <span class="ldx-tweet-content">{{tweet.content}}</span>
+          <span class="ldx-tweet-handle">{{tweet.userName}}</span>
+        </p>
       </div>
     </div>
   </section>

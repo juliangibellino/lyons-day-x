@@ -1,5 +1,5 @@
 /*jshint unused: vars */
-define(['angular', 'controllers/main', 'controllers/tshirt', 'controllers/socialfeed', 'services/socialfeed', 'filters/timeago', 'directives/socialfeedgrid']/*deps*/, function (angular, MainCtrl, TshirtCtrl, SocialFeedCtrl, SocialFeedService, TimeagoFilter, SocialFeedGridDirective)/*invoke*/ {
+define(['angular', 'controllers/main', 'controllers/tshirt', 'controllers/socialfeed', 'services/socialfeed', 'filters/timeago', 'directives/socialfeedgrid', 'controllers/tweetdeck']/*deps*/, function (angular, MainCtrl, TshirtCtrl, SocialFeedCtrl, SocialFeedService, TimeagoFilter, SocialFeedGridDirective, TweetDeckCtrl)/*invoke*/ {
   'use strict';
 
   /**
@@ -18,6 +18,7 @@ define(['angular', 'controllers/main', 'controllers/tshirt', 'controllers/social
 'lyonsDayXApp.services.SocialFeed',
 'lyonsDayXApp.filters.Timeago',
 'lyonsDayXApp.directives.SocialFeedGrid',
+'lyonsDayXApp.controllers.TweetDeckCtrl',
 /*angJSDeps*/
       'ngResource',
       'ngSanitize'
